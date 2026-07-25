@@ -1,17 +1,19 @@
-*.iml
-.gradle
-/local.properties
-/.idea
+# CipherLink Public Repository
+# Only documentation and release assets
+
+# OS files
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-/app/build
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Build artifacts (not stored in public repo)
 *.apk
 *.aab
 *.jks
 *.keystore
-keystore/
-.env
