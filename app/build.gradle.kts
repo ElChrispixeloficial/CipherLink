@@ -21,13 +21,27 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("../keystore/release.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "cipherlink"
+            keyAlias = System.getenv("KEY_ALIAS") ?: "cipherlink"
+            keyPassword = System.getenv("KEY_PASSWORD") ?: "cipherlink"
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
